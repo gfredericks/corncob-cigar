@@ -8,6 +8,10 @@ A Leiningen plugin with miscellaneous utilities.
 > slightly forward. With his bristling grey hair, bulky nose, and lucid
 > eyes, he had the look of an aging and shabby eagle.
 
+## Obtainage
+
+Via Leiningen: `[com.gfredericks/corncob-cigar "0.1.0-SNAPSHOT"]`
+
 ## License
 
 Copyright © 2014 Gary Fredericks
