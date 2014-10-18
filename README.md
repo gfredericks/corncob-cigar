@@ -10,7 +10,7 @@ A Leiningen plugin with miscellaneous utilities.
 
 ## Obtainage
 
-Via Leiningen: `[com.gfredericks/corncob-cigar "0.1.0-SNAPSHOT"]`
+Via Leiningen: `[com.gfredericks/corncob-cigar "0.1.0"]`
 
 ## License
 
