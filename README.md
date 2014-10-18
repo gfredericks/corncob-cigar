@@ -27,7 +27,7 @@ custom tasks to solve those problems.
 ### `vcs-tag-no-sign`
 
 This task is like the built-in `lein vcs tag` but it creates a simple
-tag named "<project-name>-<version>" with no PGP signature.
+tag named `<project-name>-<version>` with no PGP signature.
 
 ### `gsub-version`
 
