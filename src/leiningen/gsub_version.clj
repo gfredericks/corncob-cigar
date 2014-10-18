@@ -3,6 +3,8 @@
   (:import java.util.regex.Pattern))
 
 (defn gsub-version
+  "Updates all the version references to this project in the
+  files listed in the :gsub-version/files entry."
   [project]
   (let [full-project-name (if (= (:name project) (:group project))
                             (format "(?:%s/)?%s"
