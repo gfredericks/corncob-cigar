@@ -18,11 +18,7 @@ Add to the `:plugins` list (probably in your `:user` profile):
 
 ## Usage
 
-So far everything is oriented toward customizing `lein deploy`. In
-particular, lein currently does not support disabling PGP signatures
-when doing git tags, and it has no mechanism for updating version
-references in README files and similar. This library provides two
-custom tasks to solve those problems.
+So far everything is oriented toward customizing `lein deploy`.
 
 ### `vcs-tag-no-sign`
 
@@ -43,6 +39,20 @@ basic string substitution on a set of files specified by the
 
 running `lein gsub-version` will replace anything in `README.md` that
 looks like `[foo/bar "SOME OTHER VERSION"]` with `[foo/bar "1.0.0"]`.
+
+### `deploy-fork`
+
+A task for making releases of other people's libraries.
+
+You'll need a `:deploy-fork` entry in your `:user` profile:
+
+``` clojure
+  :deploy-fork {:group-id-prefix "com.mydomain.forks"}
+```
+
+And then `lein deploy-fork` will package the project with a modified
+group-id and a version tagged with the current git commit sha, and
+deploy it.
 
 ## License
 
