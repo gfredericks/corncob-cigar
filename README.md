@@ -8,7 +8,7 @@ A Leiningen plugin with miscellaneous utilities.
 > slightly forward. With his bristling grey hair, bulky nose, and lucid
 > eyes, he had the look of an aging and shabby eagle.
 
-## Obtainage
+## Obtention
 
 Add to the `:plugins` list (probably in your `:user` profile):
 
