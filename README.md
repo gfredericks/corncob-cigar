@@ -18,8 +18,6 @@ Add to the `:plugins` list (probably in your `:user` profile):
 
 ## Usage
 
-So far everything is oriented toward customizing `lein deploy`.
-
 ### `vcs-tag-no-sign`
 
 This task is like the built-in `lein vcs tag` but it creates a simple
@@ -53,6 +51,26 @@ You'll need a `:deploy-fork` entry in your `:user` profile:
 And then `lein deploy-fork` will package the project with a modified
 group-id and a version tagged with the current git commit sha, and
 deploy it.
+
+### `benchmark-task`
+
+A task for running a task repeatedly, gathering statistics about how
+long it takes:
+
+```
+$ lein benchmark-task 10 version
+Leiningen 2.5.0 on Java 1.7.0-u65 OpenJDK 64-Bit Server VM
+Leiningen 2.5.0 on Java 1.7.0-u65 OpenJDK 64-Bit Server VM
+Leiningen 2.5.0 on Java 1.7.0-u65 OpenJDK 64-Bit Server VM
+Leiningen 2.5.0 on Java 1.7.0-u65 OpenJDK 64-Bit Server VM
+Leiningen 2.5.0 on Java 1.7.0-u65 OpenJDK 64-Bit Server VM
+Leiningen 2.5.0 on Java 1.7.0-u65 OpenJDK 64-Bit Server VM
+Leiningen 2.5.0 on Java 1.7.0-u65 OpenJDK 64-Bit Server VM
+Leiningen 2.5.0 on Java 1.7.0-u65 OpenJDK 64-Bit Server VM
+Leiningen 2.5.0 on Java 1.7.0-u65 OpenJDK 64-Bit Server VM
+Leiningen 2.5.0 on Java 1.7.0-u65 OpenJDK 64-Bit Server VM
+Ran task 10 times, runtime was mean of 1.00ms, standard deviation of 1.10ms.
+```
 
 ## License
 
