@@ -2,17 +2,22 @@
   "Run a Leiningen task repeatedly to gather statistics about how long
 it takes. E.g.:
 
-  lein benchmark-task 20 test"
+  lein benchmark-task 20 test
+
+  The task will be run one extra time initially as a warmup, to account
+  for initial compilation or anything else similar."
   (:require [leiningen.core.main :as main]))
 
 (defn benchmark-task
   [project num-runs & args]
   (let [num-runs (Long/parseLong num-runs)
+        f #(main/resolve-and-apply project args)
+        _ (f) ;; warmup, etc.
         runtimes
         (repeatedly num-runs
                     (fn []
                       (let [b (System/currentTimeMillis)]
-                        (main/resolve-and-apply project args)
+                        (f)
                         (- (System/currentTimeMillis) b))))
         avg (/ (reduce + runtimes) (double num-runs))
         stddev (Math/sqrt
