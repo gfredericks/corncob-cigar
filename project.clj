@@ -1,4 +1,4 @@
-(defproject com.gfredericks/corncob-cigar "0.1.4-SNAPSHOT"
+(defproject com.gfredericks/corncob-cigar "0.1.4"
   :description "Leiningen utilities."
   :url "https://github.com/gfredericks/corncob-cigar"
   :license {:name "Eclipse Public License"

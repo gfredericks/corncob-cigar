@@ -13,7 +13,7 @@ A Leiningen plugin with miscellaneous utilities.
 Add to the `:plugins` list (probably in your `:user` profile):
 
 ```
-[com.gfredericks/corncob-cigar "0.1.3"]
+[com.gfredericks/corncob-cigar "0.1.4"]
 ```
 
 ## Usage
