@@ -20,6 +20,8 @@ Add to the `:plugins` list (probably in your `:user` profile):
 
 ### `vcs-tag-no-sign`
 
+NOTE: This is apparently supported by Leiningen as of `2.5.3`.
+
 This task is like the built-in `lein vcs tag` but it creates a simple
 tag named `<project-name>-<version>` with no PGP signature.
 
