@@ -52,7 +52,8 @@ You'll need a `:deploy-fork` entry in your `:user` profile:
 
 And then `lein deploy-fork` will package the project with a modified
 group-id and a version tagged with the current git commit sha, and
-deploy it.
+deploy it. An optional repository argument can be added, same as `lein
+deploy` (e.g. `lein deploy-fork clojars`).
 
 ### `benchmark-task`
 
