@@ -30,22 +30,25 @@
   entry (presumably in your :user profile) with at least the key
   :group-id-prefix. Appends the current commit SHA to the version
   (assumes git)."
-  [{:keys [deploy-fork name group version] :as project}]
+  [{:keys [deploy-fork name group version] :as project} & [repository]]
   (let [{:keys [group-id-prefix]} deploy-fork
         whole-name (str group "/" name)]
     (when-not group-id-prefix
       (throw (ex-info "No [:deploy-fork :group-id-prefix] found in project!"
                       {:project project})))
     (let [group' (str (remove-trailing-dot (str group-id-prefix)) "." group)
-          version' (append-sha-to-version version (current-git-commit))]
-      (-> project
-          (dissoc :deploy-branches)
-          (assoc :group group', :version version')
-          ;; does this actually work? seems to not...
-          (update-in [:description]
-                     (fn [s]
-                       (format "Temporary forked version of %s.\n\n%s"
-                               whole-name s)))
-          (leiningen.deploy/deploy))
+          version' (append-sha-to-version version (current-git-commit))
+
+          project' (-> project
+                       (dissoc :deploy-branches)
+                       (assoc :group group', :version version')
+                       ;; does this actually work? seems to not...
+                       (update-in [:description]
+                                  (fn [s]
+                                    (format "Temporary forked version of %s.\n\n%s"
+                                            whole-name s))))]
+      (if repository
+        (leiningen.deploy/deploy project' repository)
+        (leiningen.deploy/deploy project'))
       (println "")
       (println "Deployed fork release:" (format "[%s/%s %s]" group' name (pr-str version'))))))
