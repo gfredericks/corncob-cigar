@@ -1,4 +1,5 @@
 (ns leiningen.gsub-version
+  "Updates the version string in various files."
   (:require [clojure.string :as s])
   (:import java.util.regex.Pattern))
 

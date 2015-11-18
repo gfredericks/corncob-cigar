@@ -1,4 +1,5 @@
 (ns leiningen.vcs-tag-no-sign
+  "Creates an unsigned git tag."
   (:require [leiningen.core.eval :as eval]))
 
 (defn vcs-tag-no-sign

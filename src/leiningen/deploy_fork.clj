@@ -1,4 +1,5 @@
 (ns leiningen.deploy-fork
+  "Deploys a forked version of the project."
   (:require [clojure.java.shell :as sh]
             [leiningen.deploy]))
 
