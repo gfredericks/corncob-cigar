@@ -55,6 +55,15 @@ group-id and a version tagged with the current git commit sha, and
 deploy it. An optional repository argument can be added, same as `lein
 deploy` (e.g. `lein deploy-fork clojars`).
 
+### `time`
+
+A task for timiming a task. Different from timing a `lein` call from
+bash in that it excludes leiningen's overhead.
+
+```
+$ lein time do
+Task ran for 0.004 seconds
+
 ### `benchmark-task`
 
 A task for running a task repeatedly, gathering statistics about how
