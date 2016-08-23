@@ -57,7 +57,7 @@ deploy` (e.g. `lein deploy-fork clojars`).
 
 ### `time`
 
-A task for timiming a task. Different from timing a `lein` call from
+A task for timing a task. Different from timing a `lein` call from
 bash in that it excludes leiningen's overhead.
 
 ```
