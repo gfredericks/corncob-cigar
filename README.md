@@ -63,6 +63,7 @@ bash in that it excludes leiningen's overhead.
 ```
 $ lein time do
 Task ran for 0.004 seconds
+```
 
 ### `benchmark-task`
 
