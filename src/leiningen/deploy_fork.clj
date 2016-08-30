@@ -40,14 +40,21 @@
     (let [group' (str (remove-trailing-dot (str group-id-prefix)) "." group)
           version' (append-sha-to-version version (current-git-commit))
 
+          modify-proj
+          #(-> %
+               (dissoc :deploy-branches)
+               (assoc :group group', :version version')
+               ;; does this actually work? seems to not...
+               (update-in [:description]
+                          (fn [s]
+                            (format "Temporary forked version of %s.\n\n%s"
+                                    whole-name s))))
+
           project' (-> project
-                       (dissoc :deploy-branches)
-                       (assoc :group group', :version version')
-                       ;; does this actually work? seems to not...
-                       (update-in [:description]
-                                  (fn [s]
-                                    (format "Temporary forked version of %s.\n\n%s"
-                                            whole-name s))))]
+                       modify-proj
+                       ;; is there a cleaner way to make sure this works
+                       ;; in the `pom` and `jar` tasks?
+                       (vary-meta update :without-profiles modify-proj))]
       (if repository
         (leiningen.deploy/deploy project' repository)
         (leiningen.deploy/deploy project'))
